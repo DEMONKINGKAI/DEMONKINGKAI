@@ -1,19 +1,22 @@
-<h1 align="center">Kai (Archit Sharma)</h1>
+<div align="center">
 
-<p align="center">
-  <b>I build AI that shows its work.</b><br/>
-  MSc AI & ML @ TU Darmstadt · causal inference · probabilistic models · grounded generative AI
-</p>
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="https://www.gitskins.com/api/section/hero?username=demonkingkai&theme=aurora&avatar=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F63913065%3Fu%3D1497b9cc0589a542f218f63c488d6220f474bfa0%26v%3D4&variant=living-identity&label=Kai&v=wow-living-identity-1&mode=light" />
+  <img src="https://www.gitskins.com/api/section/hero?username=demonkingkai&theme=aurora&avatar=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F63913065%3Fu%3D1497b9cc0589a542f218f63c488d6220f474bfa0%26v%3D4&variant=living-identity&label=Kai&v=wow-living-identity-1&mode=dark" width="100%" alt="Kai animated portrait and ASCII name" />
+</picture>
 
-<p align="center">
-  <a href="https://github.com/DEMONKINGKAI"><img src="https://img.shields.io/badge/GitHub-DEMONKINGKAI-181717?style=flat-square&logo=github" /></a>
-  <!-- TODO: replace with your real LinkedIn URL -->
-  <a href="https://www.linkedin.com/in/YOUR-HANDLE"><img src="https://img.shields.io/badge/LinkedIn-Archit%20Sharma-0A66C2?style=flat-square&logo=linkedin" /></a>
-  <img src="https://img.shields.io/badge/Based%20in-Darmstadt%2C%20DE-555?style=flat-square" />
-  <img src="https://img.shields.io/badge/Open%20to-Werkstudent%20%C2%B7%20ML%20roles-2ea44f?style=flat-square" />
-</p>
+<h3>I build AI that shows its work.</h3>
+<p>MSc AI &amp; ML @ TU Darmstadt · causal inference · probabilistic models · grounded generative AI</p>
 
----
+<a href="https://github.com/DEMONKINGKAI"><img src="https://img.shields.io/badge/GitHub-DEMONKINGKAI-181717?style=flat-square&logo=github" /></a>
+<!-- TODO: replace with your real LinkedIn URL -->
+<a href="https://www.linkedin.com/in/YOUR-HANDLE"><img src="https://img.shields.io/badge/LinkedIn-Archit%20Sharma-0A66C2?style=flat-square&logo=linkedin" /></a>
+<img src="https://img.shields.io/badge/Based%20in-Darmstadt%2C%20DE-555?style=flat-square" />
+<img src="https://img.shields.io/badge/Open%20to-Werkstudent%20%C2%B7%20ML%20roles-2ea44f?style=flat-square" />
+
+</div>
+
+<p align="center"><sub>✦ ───────────────────────────── ✦</sub></p>
 
 Most models will confidently tell you something they can't back up. My work is about the opposite:
 systems where **every claim, edge, or probability can be traced back to the evidence that produced it**,
@@ -23,7 +26,23 @@ Before my master's I was a Product Engineer at **EffiGO**, shipping generative-A
 pipelines across GCP, AWS and Azure. Right now I'm working on **visual hallucinations in multimodal reasoning traces**
 in the Multimodal AI Project Lab at TU Darmstadt.
 
-## Featured work
+<p align="center"><sub>✦ ───────────────────────────── ✦</sub></p>
+
+<h2>What moves the work</h2>
+
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="https://www.gitskins.com/api/section/highlights?username=demonkingkai&theme=aurora&avatar=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F63913065%3Fu%3D1497b9cc0589a542f218f63c488d6220f474bfa0%26v%3D4&items=Causal%20discovery%3A%3Apharmacausal%20%C2%B7%20422k%20FDA%20reports%7CGrounded%20RAG%3A%3Aad-fontes%20%C2%B7%20fons-iuris%7CExplainable%20PGMs%3A%3Aevidentia%20%C2%B7%20895-node%20BN&variant=wow&v=wow-highlights-2&mode=light" />
+  <img src="https://www.gitskins.com/api/section/highlights?username=demonkingkai&theme=aurora&avatar=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F63913065%3Fu%3D1497b9cc0589a542f218f63c488d6220f474bfa0%26v%3D4&items=Causal%20discovery%3A%3Apharmacausal%20%C2%B7%20422k%20FDA%20reports%7CGrounded%20RAG%3A%3Aad-fontes%20%C2%B7%20fons-iuris%7CExplainable%20PGMs%3A%3Aevidentia%20%C2%B7%20895-node%20BN&variant=wow&v=wow-highlights-2&mode=dark" width="100%" alt="Focus areas: causal discovery, grounded RAG, explainable PGMs" />
+</picture>
+
+<p align="center"><sub>✦ ───────────────────────────── ✦</sub></p>
+
+<h2>Built, shipped, shared</h2>
+
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="https://www.gitskins.com/api/section/projects?username=demonkingkai&theme=aurora&avatar=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F63913065%3Fu%3D1497b9cc0589a542f218f63c488d6220f474bfa0%26v%3D4&repos=demonkingkai%2Fad-fontes%2Cdemonkingkai%2Fpharmacausal%2Cdemonkingkai%2Fevidentia%2Cdemonkingkai%2Ffons-iuris&variant=wow&v=wow-projects-2&mode=light" />
+  <img src="https://www.gitskins.com/api/section/projects?username=demonkingkai&theme=aurora&avatar=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F63913065%3Fu%3D1497b9cc0589a542f218f63c488d6220f474bfa0%26v%3D4&repos=demonkingkai%2Fad-fontes%2Cdemonkingkai%2Fpharmacausal%2Cdemonkingkai%2Fevidentia%2Cdemonkingkai%2Ffons-iuris&variant=wow&v=wow-projects-2&mode=dark" width="100%" alt="Project constellation" />
+</picture>
 
 ### 🔎 [ad-fontes](https://github.com/DEMONKINGKAI/ad-fontes): a RAG assistant that isn't allowed to exaggerate
 A recruiter-facing assistant about my own portfolio, built so it can't inflate claims about my work.
@@ -58,27 +77,25 @@ specific provisions, and uses an **NLI verifier** to flag any claim its cited pa
 
 - `FastAPI` · `Chroma` · `Transformers` · `React/Vite` · `Docker Compose`
 
-## What I work with
+<p align="center"><sub>✦ ───────────────────────────── ✦</sub></p>
 
-**Core ML:** causal discovery & inference · Bayesian networks / PGMs · RAG & claim verification · RLHF / DPO · multimodal models (CLIP fine-tuning, BLIP-2, LLaVA)
+<h2>The tools behind the work</h2>
 
-**Stack:**
-<br/>
-<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-<img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white" />
-<img src="https://img.shields.io/badge/Hugging%20Face-FFD21E?style=flat-square&logo=huggingface&logoColor=black" />
-<img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" />
-<img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB" />
-<img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" />
-<img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
-<img src="https://img.shields.io/badge/GCP-4285F4?style=flat-square&logo=googlecloud&logoColor=white" />
-<img src="https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonwebservices&logoColor=white" />
-<img src="https://img.shields.io/badge/Azure-0078D4?style=flat-square&logo=microsoftazure&logoColor=white" />
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="https://www.gitskins.com/api/section/stack?username=demonkingkai&theme=aurora&avatar=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F63913065%3Fu%3D1497b9cc0589a542f218f63c488d6220f474bfa0%26v%3D4&variant=wow&v=wow-stack-1&mode=light" />
+  <img src="https://www.gitskins.com/api/section/stack?username=demonkingkai&theme=aurora&avatar=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F63913065%3Fu%3D1497b9cc0589a542f218f63c488d6220f474bfa0%26v%3D4&variant=wow&v=wow-stack-1&mode=dark" width="100%" alt="Technology stack" />
+</picture>
 
-## Currently
+<p><b>Core ML:</b> causal discovery & inference · Bayesian networks / PGMs · RAG & claim verification · RLHF / DPO · multimodal models (CLIP fine-tuning, BLIP-2, LLaVA)</p>
+
+<p align="center"><sub>✦ ───────────────────────────── ✦</sub></p>
+
+<h2>Currently</h2>
 
 - 🔬 Testing whether multimodal models' reasoning traces are *seeing* or *making things up* (TU Darmstadt project lab)
 - 🎯 Running the DPO stage of **ad-fontes** and measuring base vs. tuned faithfulness
 - 💼 Looking for **Werkstudent** roles in ML/AI (thesis-compatible) and full-time roles from 2027
+
+<p align="center"><sub>✦ ───────────────────────────── ✦</sub></p>
 
 <p align="center"><sub>Ad fontes: back to the sources.</sub></p>
