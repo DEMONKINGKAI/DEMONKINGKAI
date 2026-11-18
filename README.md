@@ -6,7 +6,7 @@
 
 <!-- TODO: replace YOUR-HANDLE with your real LinkedIn handle -->
 <a href="https://www.linkedin.com/in/YOUR-HANDLE"><img src="https://img.shields.io/badge/LinkedIn-Archit_Sharma-00E5FF?style=for-the-badge&logo=linkedin&logoColor=00E5FF&labelColor=0C0E16" /></a>
-<a href="https://github.com/DEMONKINGKAI?tab=repositories"><img src="https://img.shields.io/badge/Repos-Explore-9B5CFF?style=for-the-badge&logo=github&logoColor=9B5CFF&labelColor=0C0E16" /></a>
+<a href="https://github.com/DEMONKINGKAI?tab=repositories"><img src="https://img.shields.io/badge/Repos-Explore-FF3B5C?style=for-the-badge&logo=github&logoColor=FF3B5C&labelColor=0C0E16" /></a>
 <img src="https://img.shields.io/badge/Status-Open_to_Werkstudent-FFB020?style=for-the-badge&logo=rocket&logoColor=FFB020&labelColor=0C0E16" />
 
 </div>
