@@ -6,7 +6,7 @@
   <source media="(prefers-color-scheme: light)" srcset="https://www.gitskins.com/api/section/hero?username=demonkingkai&theme=aurora&avatar=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F63913065%3Fu%3D1497b9cc0589a542f218f63c488d6220f474bfa0%26v%3D4&variant=living-identity&label=Kai&v=wow-living-identity-1&mode=light" />
   <img src="https://www.gitskins.com/api/section/hero?username=demonkingkai&theme=aurora&avatar=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F63913065%3Fu%3D1497b9cc0589a542f218f63c488d6220f474bfa0%26v%3D4&variant=living-identity&label=Kai&v=wow-living-identity-1&mode=dark" width="100%" alt="Kai animated Living Identity portrait and ASCII name" />
 </picture>
-<p><strong>Frontend or full-stack engineer</strong> · the public internet</p>
+<p><strong>AI and ML Engineer</strong></p>
 <p>An AI Building AI...</p>
 <p><a href="https://github.com/demonkingkai">GitHub</a></p>
 </div>
