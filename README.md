@@ -4,8 +4,7 @@
 
 <br/>
 
-<!-- TODO: replace YOUR-HANDLE with your real LinkedIn handle -->
-<a href="https://www.linkedin.com/in/YOUR-HANDLE"><img src="https://img.shields.io/badge/LinkedIn-Archit_Sharma-00E5FF?style=for-the-badge&logo=linkedin&logoColor=00E5FF&labelColor=0C0E16" /></a>
+<a href="https://www.linkedin.com/in/archit-sharma-work/"><img src="https://img.shields.io/badge/LinkedIn-Archit_Sharma-00E5FF?style=for-the-badge&logo=linkedin&logoColor=00E5FF&labelColor=0C0E16" /></a>
 <a href="https://github.com/DEMONKINGKAI?tab=repositories"><img src="https://img.shields.io/badge/Repos-Explore-FF3B5C?style=for-the-badge&logo=github&logoColor=FF3B5C&labelColor=0C0E16" /></a>
 <img src="https://img.shields.io/badge/Status-Open_to_Werkstudent-FFB020?style=for-the-badge&logo=rocket&logoColor=FFB020&labelColor=0C0E16" />
 
@@ -21,7 +20,9 @@
 
 <img src="assets/title-work.svg" width="100%" alt="02 // featured_work" />
 
-<a href="https://github.com/DEMONKINGKAI/ad-fontes"><img src="assets/card-adfontes.svg" width="100%" alt="ad-fontes — a RAG portfolio assistant where every claim must cite a retrieved chunk and pass structural, NLI and numeric checks; DPO-tuned for faithfulness. 93.9% chunk hit@6, MRR 0.74." /></a>
+<a href="https://github.com/DEMONKINGKAI/overseer"><img src="assets/card-overseer.svg" width="100%" alt="Overseer: a Tauri tray widget that shows every local Claude Code session at a glance (working, your move, needs approval, gone quiet, ended), driven by Claude Code hooks. Windows and macOS." /></a>
+
+<a href="https://github.com/DEMONKINGKAI/neuro-graph"><img src="assets/card-decisiongraph.svg" width="100%" alt="Decision Graph: a Claude Code plugin that records decisions from long sessions as a graph Claude can query (why, impact, stale), and warns when a command contradicts an earlier decision. 100% recall and 99% precision on a 10-case extraction eval." /></a>
 
 <a href="https://github.com/DEMONKINGKAI/pharmacausal"><img src="assets/card-pharmacausal.svg" width="100%" alt="pharmacausal — PC and FCI causal discovery on 422k FDA FAERS adverse-event reports with tiered background knowledge; SIDER-validated, 67% FCI precision on covered edges." /></a>
 

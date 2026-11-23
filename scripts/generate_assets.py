@@ -240,7 +240,7 @@ def header():
     # ---------- stats strip ----------
     stats = [(CY, "422k", "FDA reports, causal discovery"),
              (VI, "895", "node Bayesian network, ECE 0.0036"),
-             (AM, "93.9%", "retrieval hit@6, verified RAG")]
+             (AM, "99%", "precision, decision extraction")]
     st = [f'<line x1="0" y1="330" x2="{W}" y2="330" stroke="{LINE}"/>']
     cw = W / 3
     for i, (col, big, small) in enumerate(stats):
@@ -629,6 +629,79 @@ def vis_fons():
     return "\n".join(s)
 
 
+def vis_overseer():
+    """Mini tray widget: sessions whose state squares change over a loop."""
+    D = 9
+    ST = {"work": (CY, "working"), "move": (TEXT, "your move"), "appr": (AM, "needs approval"),
+          "quiet": (VI, "gone quiet"), "end": (MUTED, "ended")}
+    rows = [("api-server",  ["work", "work", "appr", "work"]),
+            ("thesis-eval", ["work", "move", "move", "work"]),
+            ("portfolio",   ["move", "work", "work", "quiet"]),
+            ("neuro-graph", ["work", "work", "end", "end"])]
+    kt = "0;0.25;0.5;0.75;1"
+    s = [f'<rect x="572" y="32" width="12" height="12" fill="{AM}"/><rect x="575" y="35" width="6" height="6" fill="{BG}"/><rect x="577" y="37" width="2" height="2" fill="{AM}"/>',
+         f'<text class="mono" x="592" y="42" font-size="11" fill="{TEXT}">overseer <tspan fill="{MUTED}">· 4 sessions</tspan></text>',
+         f'<line x1="572" y1="52" x2="864" y2="52" stroke="{LINE}"/>']
+    for r, (name, seq) in enumerate(rows):
+        y = 74 + r * 30
+        s.append(f'<text class="mono" x="594" y="{y}" font-size="11.5" fill="{TEXT}">{name}</text>')
+        for st in set(seq):
+            col, lab = ST[st]
+            vals = ";".join("1" if q == st else "0" for q in seq) + (";1" if seq[0] == st else ";0")
+            blink = (f'<animate attributeName="fill-opacity" values="1;0.2;1" dur="0.8s" repeatCount="indefinite"/>' if st == "appr" else "")
+            work = ""
+            if st == "work":
+                work = "".join(f'<rect x="{850 - (2-k)*8}" y="{y-7}" width="5" height="5" fill="{CY}"><animate attributeName="opacity" values="0.2;1;0.2" dur="1.2s" begin="{k*0.3}s" repeatCount="indefinite"/></rect>' for k in range(3))
+            s.append(f'<g opacity="0"><animate attributeName="opacity" values="{vals}" keyTimes="{kt}" dur="{D}s" calcMode="discrete" repeatCount="indefinite"/>'
+                     f'<rect x="574" y="{y-10}" width="11" height="11" fill="{col}">{blink}</rect>'
+                     f'<text class="mono" x="{826 if st == "work" else 862}" y="{y}" font-size="10.5" fill="{col}" text-anchor="end">{lab}</text>{work}</g>')
+    # approval prompt pops when api-server needs approval
+    s.append(f'<g opacity="0"><animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;0.5;0.52;0.75;1" dur="{D}s" calcMode="discrete" repeatCount="indefinite"/>'
+             f'<rect x="572" y="194" width="292" height="18" fill="{AM}" fill-opacity="0.12" stroke="{AM}" stroke-opacity="0.7"/>'
+             f'<text class="mono" x="580" y="207" font-size="10.5" fill="{AM}">api-server wants to run: npm publish  [y/n]</text></g>')
+    return "\n".join(s)
+
+
+def vis_decisions():
+    D = 9
+    def node(x, y, w, label, col=CY, extra=""):
+        return (f'<g {extra}><rect x="{x+2}" y="{y+2}" width="{w}" height="22" fill="{VI}" opacity="0.35"/>'
+                f'<rect x="{x}" y="{y}" width="{w}" height="22" fill="{PANEL2}" stroke="{col}" stroke-width="1.5"/>'
+                f'<text class="mono" x="{x+8}" y="{y+15}" font-size="10.5" fill="{TEXT}">{esc(label)}</text></g>')
+    def gate(vals, kt):
+        return f'<animate attributeName="opacity" values="{vals}" keyTimes="{kt}" dur="{D}s" calcMode="discrete" repeatCount="indefinite"/>'
+    s = []
+    # edges D-1 -> D-3, D-1 -> D-4
+    for yy in (44, 86):
+        s.append(f'<path d="M678 56 H708 V{yy+11} H736" stroke="{CY}" stroke-opacity="0.6" stroke-width="1.5"/>'
+                 f'<polygon points="736,{yy+7} 742,{yy+11} 736,{yy+15}" fill="{CY}"/>')
+        s.append(f'<rect width="5" height="5" fill="{CY}"><animateMotion dur="1.6s" repeatCount="indefinite" path="M678 56 H708 V{yy+11} H736"/></rect>')
+    # D-1 normal then replaced
+    s.append(node(574, 45, 104, "D-1 sqlite", CY, f'opacity="1">{gate("1;1;0;1", "0;0.36;0.36;1")}<g'.replace("<g", "<g") ) + "</g>" if False else "")
+    s.append(f'<g>{gate("1;0;0;1", "0;0.36;0.97;1")}' + node(574, 45, 104, "D-1 sqlite") + "</g>")
+    s.append(f'<g opacity="0">{gate("0;1;1;0", "0;0.36;0.97;1")}'
+             f'<rect x="574" y="45" width="104" height="22" fill="none" stroke="{MUTED}" stroke-dasharray="4 3"/>'
+             f'<text class="mono" x="582" y="60" font-size="10.5" fill="{MUTED}" text-decoration="line-through">D-1 sqlite</text></g>')
+    # D-6 postgres appears and replaces D-1
+    s.append(f'<g opacity="0">{gate("0;1;1;0", "0;0.3;0.97;1")}' + node(574, 104, 104, "D-6 postgres", AM) +
+             f'<path d="M626 104 V71" stroke="{AM}" stroke-width="1.5" stroke-dasharray="3 3"/><polygon points="622,73 626,67 630,73" fill="{AM}"/>'
+             f'<text class="mono" x="632" y="90" font-size="9.5" fill="{AM}">replaces</text></g>')
+    # D-3 / D-4 go stale
+    for (yy, lab) in ((33, "D-3 offline"), (75, "D-4 sync")):
+        s.append(node(742, yy, 120, lab))
+        s.append(f'<g opacity="0">{gate("0;1;1;0", "0;0.44;0.97;1")}'
+                 f'<rect x="742" y="{yy}" width="120" height="22" fill="none" stroke="{VI}" stroke-width="2"/>'
+                 f'<rect x="846" y="{yy+5}" width="12" height="12" fill="{VI}"><animate attributeName="opacity" values="1;0.2;1" dur="0.9s" repeatCount="indefinite"/></rect>'
+                 f'<text class="mono" x="852" y="{yy+15}" font-size="10" font-weight="700" fill="{BG}" text-anchor="middle">!</text></g>')
+    s.append(f'<g opacity="0">{gate("0;1;1;0", "0;0.44;0.97;1")}<text class="mono" x="742" y="122" font-size="10" fill="{VI}">2 decisions stale</text></g>')
+    # contradiction guard in the terminal strip
+    s.append(f'<line x1="572" y1="150" x2="864" y2="150" stroke="{LINE}"/>')
+    s.append(f'<g opacity="0">{gate("0;1;1;0", "0;0.6;0.97;1")}<text class="mono" x="574" y="172" font-size="11" fill="{TEXT}"><tspan fill="{CY}">❯</tspan> npm install jest</text></g>')
+    s.append(f'<g opacity="0">{gate("0;1;1;0", "0;0.7;0.97;1")}<rect x="572" y="182" width="292" height="20" fill="{AM}" fill-opacity="0.12" stroke="{AM}" stroke-opacity="0.7"/>'
+             f'<text class="mono" x="580" y="196" font-size="10.5" fill="{AM}">⚠ D-2 chose vitest over jest. allow? [y/n]</text></g>')
+    return "\n".join(x for x in s if x)
+
+
 # =====================================================================
 # STACK
 # =====================================================================
@@ -725,22 +798,27 @@ if __name__ == "__main__":
     section("work", "featured work", VI, "02", 2)
     section("stack", "toolkit", AM, "03", 3)
     section("now", "currently", CY, "04", 4)
-    card("adfontes", "01", "RAG · CLAIM VERIFICATION · DPO", CY, "ad-fontes",
-         ["A portfolio assistant that isn't allowed to exaggerate.",
-          "Every claim must cite a chunk and pass 3 checks."],
-         ["93.9% hit@6", "MRR 0.74", "DPO in progress"],
-         "Qwen2.5-1.5B · QLoRA · TRL · ChromaDB · FastAPI", vis_adfontes(), 1)
-    card("pharmacausal", "02", "CAUSAL DISCOVERY · PHARMACOVIGILANCE", VI, "pharmacausal",
+    card("overseer", "01", "DEV TOOLING · CLAUDE CODE · TAURI", AM, "overseer",
+         ["A tray widget that watches every local Claude Code",
+          "session and flags the ones that need you."],
+         ["5 live states", "hook-driven", "Windows + macOS"],
+         "Tauri · Rust · Node.js · Claude Code hooks", vis_overseer(), 5)
+    card("decisiongraph", "02", "CLAUDE CODE PLUGIN · AGENT MEMORY", CY, "decision graph",
+         ["Records the decisions from long sessions as a graph",
+          "Claude can query: why, impact, what went stale."],
+         ["100% recall", "99% precision", "10-case eval"],
+         "Python (stdlib) · Claude Code hooks · Haiku", vis_decisions(), 6)
+    card("pharmacausal", "03", "CAUSAL DISCOVERY · PHARMACOVIGILANCE", VI, "pharmacausal",
          ["PC + FCI causal discovery on FDA adverse-event reports,",
           "with time-ordered tiers so confounders get pruned."],
          ["422k reports", "67% FCI precision", "SIDER-validated"],
          "causal-learn · pandas · pytest", vis_pharma(), 2)
-    card("evidentia", "03", "BAYESIAN NETWORKS · EXPLAINABILITY", AM, "evidentia",
+    card("evidentia", "04", "BAYESIAN NETWORKS · EXPLAINABILITY", AM, "evidentia",
          ["An 895-node Bayesian-network symptom checker where",
           "every probability shift is traced to its evidence."],
          ["ECE 0.0036", "134,529 test patients"],
          "Python · FastAPI · React · Cytoscape", vis_evidentia(), 3)
-    card("fonsiuris", "04", "LEGAL RAG · NLI VERIFICATION", CY, "fons-iuris",
+    card("fonsiuris", "05", "LEGAL RAG · NLI VERIFICATION", CY, "fons-iuris",
          ["GDPR & EU AI Act Q&A that cites the exact paragraph",
           "and flags any claim its source doesn't entail."],
          ["EUR-Lex corpus", "NLI-verified"],
