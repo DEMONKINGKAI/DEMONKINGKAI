@@ -40,6 +40,6 @@
 
 <img src="assets/title-now.svg" width="100%" alt="04 // currently" />
 
-<img src="assets/now.svg" width="100%" alt="Currently: researching visual hallucinations in multimodal reasoning traces (TU Darmstadt project lab); training the ad-fontes DPO stage; open to Werkstudent ML/AI roles and full-time from 2027." />
+<img src="assets/now.svg" width="100%" alt="Currently: researching visual hallucinations in multimodal reasoning traces (TU Darmstadt project lab); building Overseer v2 (agent cards, approvals from the widget); open to Werkstudent ML/AI roles and full-time from 2027." />
 
-<img src="assets/footer.svg" width="100%" alt="ad fontes — back to the sources" />
+<img src="assets/footer.svg" width="100%" alt="Show your work: every claim traced back to its evidence" />

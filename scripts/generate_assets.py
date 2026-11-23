@@ -517,31 +517,6 @@ def card(name, num, kind, color, title, desc, chips, stack, visual, seed):
     save(f"card-{name}.svg", svg(H, "\n".join(parts), style=PIXEL_CSS + "\n" + css))
 
 
-def vis_adfontes():
-    c = CY
-    rows = [("claim_1", "chunk#12", True), ("claim_2", "chunk#47", True), ("claim_3", "—", False)]
-    s = [f'<text class="mono" x="574" y="44" font-size="11" fill="{MUTED}">verify(claim) <tspan fill="{c}">▸</tspan> 3 checks</text>']
-    D = 6
-    for r, (cl, ch, ok) in enumerate(rows):
-        y = 68 + r * 42
-        s.append(f'<text class="mono" x="574" y="{y}" font-size="12" fill="{TEXT}">{cl} <tspan fill="{MUTED}">▸</tspan> <tspan fill="{VI if ok else MUTED}">{esc(ch)}</tspan></text>')
-        for k, lab in enumerate(["struct", "NLI", "num"]):
-            px_ = 574 + k * 66
-            t0 = (r * 3 + k) * 0.45
-            col = c if ok else AM
-            mark = "✓" if ok else "✗"
-            s.append(f'<g opacity="0.18"><animate attributeName="opacity" values="0.18;0.18;1;1;0.18" keyTimes="0;{t0/D:.3f};{(t0+0.2)/D:.3f};0.92;1" dur="{D}s" repeatCount="indefinite"/>'
-                     f'<rect x="{px_}" y="{y+8}" width="58" height="20" fill="{col}" fill-opacity="0.12" stroke="{col}" stroke-opacity="0.7"/>'
-                     f'<text class="mono" x="{px_+29}" y="{y+22}" font-size="11" fill="{col}" text-anchor="middle">{mark} {lab}</text></g>')
-        if not ok:
-            t0 = (r * 3 + 2) * 0.45 + 0.3
-            s.append(f'<g opacity="0"><animate attributeName="opacity" values="0;0;1;0.3;1;0" keyTimes="0;{t0/D:.3f};{(t0+0.15)/D:.3f};{(t0+0.5)/D:.3f};0.92;1" dur="{D}s" repeatCount="indefinite"/>'
-                     f'<rect x="774" y="{y+8}" width="76" height="20" fill="{AM}"/>'
-                     f'<text class="mono" x="812" y="{y+22}" font-size="11" font-weight="700" fill="{BG}" text-anchor="middle">FLAGGED</text></g>')
-    s.append(f'<text class="mono" x="574" y="204" font-size="11" fill="{MUTED}">metric: <tspan fill="{c}">unsupported claims / 100 answers</tspan></text>')
-    return "\n".join(s)
-
-
 def vis_pharma():
     cols = {"demo": 600, "indic.": 678, "drug": 756, "event": 840}
     s = []
@@ -747,7 +722,7 @@ def stack():
 def now():
     rows = [
         (CY, "RESEARCH", "Visual hallucinations in multimodal reasoning traces", "TU Darmstadt · MAI project lab"),
-        (VI, "TRAINING", "ad-fontes DPO stage: base vs. tuned faithfulness", "QLoRA · TRL"),
+        (VI, "BUILDING", "Overseer v2: agent cards, approvals from the widget", "Tauri · Rust · Claude Code hooks"),
         (AM, "OPEN TO", "Werkstudent ML/AI roles, full-time from 2027", "thesis-compatible · Darmstadt / remote"),
     ]
     parts = []
@@ -784,10 +759,10 @@ def footer():
             y = round(y / 4) * 4
             rects.append(f'<rect x="{x}" y="{y}" width="{sz}" height="{sz}" fill="{col}" opacity="0.7"/>')
         waves.append(f'<g><animateTransform attributeName="transform" type="translate" values="0 0;-{per} 0" dur="{dur}s" repeatCount="indefinite"/>{"".join(rects)}</g>')
-    pt, css, w = pixel_text("AD FONTES", 0, 0, 4, "ft", period=8, delay=3, pop=False, seed=4)
+    pt, css, w = pixel_text("SHOW YOUR WORK", 0, 0, 4, "ft", period=8, delay=3, pop=False, seed=4)
     parts.append(f'<g mask="url(#m)">{"".join(waves)}</g>')
     parts.append(f'<g transform="translate({W/2 - w/2:.0f},90)">{pt}</g>')
-    parts.append(f'<text class="mono" x="{W/2}" y="{H-12}" font-size="10.5" fill="{MUTED}" text-anchor="middle">back to the sources</text>')
+    parts.append(f'<text class="mono" x="{W/2}" y="{H-12}" font-size="10.5" fill="{MUTED}" text-anchor="middle">every claim traced back to its evidence</text>')
     defs = f'<linearGradient id="fade" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="0.15" stop-color="#fff"/><stop offset="0.85" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><mask id="m"><rect width="{W}" height="{H}" fill="url(#fade)"/></mask>'
     save("footer.svg", svg(H, "\n".join(parts), defs, PIXEL_CSS + "\n" + css))
 
